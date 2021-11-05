@@ -1,29 +1,27 @@
 #include "module_3d.h"
 
-void summ_vector_3d(int size, int *** vector_one, int *** vector_two, int *** vector_result) {
-    for (int i = 0; i < size; ++i)
-        for (int j = 0; j < size; ++j)
-            for (int k = 0; k < size; ++k)
-                vector_result[i][j][k] = vector_one[i][j][k] + vector_two[i][j][k];
+void dot_product(const Point3D_type * point_one, const Point3D_type * point_two, Point3D_type * point_result) 
+{
+    point_result->x = point_one->y * point_two->z - point_one->z * point_two->y;
+    point_result->y = -(point_one->x * point_two->z - point_one->z * point_two->x);
+    point_result->z = point_one->x * point_two->y - point_one->y * point_two->x;
 }
 
-void differece_vector_3d(int size, int *** vector_one, int *** vector_two, int *** vector_result) {
-    for (int i = 0; i < size; ++i)
-        for (int j = 0; j < size; ++j)
-            for (int k = 0; k < size; ++k)
-                vector_result[i][j][k] = vector_one[i][j][k] - vector_two[i][j][k];
+int cross_product(const Point3D_type * point_one, const Point3D_type * point_two)
+{
+    return point_one->x * point_two->x + point_one->y * point_two->y + point_one->z * point_two->z;
 }
 
-void prodact_vector_3d(int size, int *** vector_one, int *** vector_two, int *** vector_result) {
-    for (int i = 0; i < size; ++i)
-        for (int j = 0; j < size; ++j)
-            for (int k = 0; k < size; ++k)
-                vector_result[i][j][k] = vector_one[i][j][k] * vector_two[i][j][k];
+void vector_sum(const Point3D_type * point_one, const Point3D_type * point_two, Point3D_type * point_result)
+{
+    point_result->x = point_one->x + point_two->x;
+    point_result->y = point_one->y + point_two->y;
+    point_result->z = point_one->z + point_two->z;
 }
 
-void devide_vector_3d(int size, int *** vector_one, int *** vector_two, int *** vector_result) {
-    for (int i = 0; i < size; ++i)
-        for (int j = 0; j < size; ++j)
-            for (int k = 0; k < size; ++k)
-                vector_result[i][j][k] = vector_one[i][j][k] / vector_two[i][j][k];
+void vector_devide(const Point3D_type * point_one, const Point3D_type * point_two, Point3D_type * point_result)
+{
+    point_result->x = point_one->x - point_two->x;
+    point_result->y = point_one->y - point_two->y;
+    point_result->z = point_one->z - point_two->z;
 }
